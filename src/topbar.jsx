@@ -8,7 +8,8 @@ import Contact from './contact/Contact';
 import {
     BrowserRouter,
     Routes,
-    Route
+    Route,
+    Link
 } from "react-router-dom";
 
 export default function topbar() {
