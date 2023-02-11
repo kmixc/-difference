@@ -6,16 +6,14 @@ import Home from './Home';
 import Shop from './shop/Shop';
 import Contact from './contact/Contact';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    Redirect
+    BrowserRouter,
+    Routes,
+    Route
 } from "react-router-dom";
 
 export default function topbar() {
     return (
-        <Router>
+        <BrowserRouter>
             <nav className="navBar">
                 <Link to="/home">home.</Link>
                 <Link to="/shop">shop.</Link>
@@ -24,21 +22,12 @@ export default function topbar() {
                 <Link to="/contact">contact.</Link>
             </nav>
 
-            <Switch>
-                <Redirect exact from="/" to="home" />
-                <Route path="/home">
-                    <Home />
-                </Route>
-                <Route path="/shop">
-                    <Shop />
-                </Route>
-                <Route path="/about">
-                    <About />
-                </Route>
-                <Route path="/contact">
-                    <Contact />
-                </Route>
-            </Switch>
-        </Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/shop" element={<Shop />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+            </Routes>
+        </BrowserRouter>
     )
 }
